@@ -77,8 +77,13 @@ public class ReadTestData {
 		}
 	}
 
-	public static List<CapiData> readExpData(String sheetName, int row, int col) {
+	public static List<CapiData> readExpData(String className, int row, int col) {
 
+		
+		String sheetName = ReadPropertiesFile.readProperty(className + ReadJsonData.CONFIG_SHEETNAME);
+		
+		ReadJsonData.MAG_TESTCAMPAIGN = ReadPropertiesFile.readProperty(className + ReadJsonData.MAG_CAMPAIGNNAME);
+		
 		// Create an object of ReadExcelFile class
 
 		ReadExcelFile objExcelFile = new ReadExcelFile();

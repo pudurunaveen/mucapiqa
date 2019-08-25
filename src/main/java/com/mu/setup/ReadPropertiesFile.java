@@ -60,10 +60,10 @@ public class ReadPropertiesFile {
 		}
 
 		if (ReadJsonData.MAG_NOTPUBLISHED.equalsIgnoreCase(ReadJsonData.MAG_PUBLISH)) {
-			jsonURL = jsonURL + "&" + ReadPropertiesFile.readProperty(ReadJsonData.MAG_PRE_PROD);
+			jsonURL = jsonURL + ReadPropertiesFile.readProperty(ReadJsonData.MAG_PRE_PROD) + "&";
 		}
 
-		jsonURL = jsonURL + "&" + ReadPropertiesFile.readProperty(classNameSeg);
+		jsonURL = jsonURL + ReadPropertiesFile.readProperty(classNameSeg);
 
 		System.out.println("#############JSON URL#####################");
 		System.out.println(jsonURL);

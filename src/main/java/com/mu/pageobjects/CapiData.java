@@ -9,6 +9,12 @@ public class CapiData {
 	private String campaignName;
 
 	private String assetType;
+	
+	private String gwSubsPath;
+	
+	private String gwSubsAudienceName;
+	
+	private String gwCreativePath;
 
 	private List<CapiData> capiData;
 
@@ -34,6 +40,30 @@ public class CapiData {
 
 	public void setAssetType(String assetType) {
 		this.assetType = assetType;
+	}
+
+	public String getGwSubsPath() {
+		return gwSubsPath;
+	}
+
+	public void setGwSubsPath(String gwSubsPath) {
+		this.gwSubsPath = gwSubsPath;
+	}
+
+	public String getGwSubsAudienceName() {
+		return gwSubsAudienceName;
+	}
+
+	public void setGwSubsAudienceName(String gwSubsAudienceName) {
+		this.gwSubsAudienceName = gwSubsAudienceName;
+	}
+
+	public String getGwCreativePath() {
+		return gwCreativePath;
+	}
+
+	public void setGwCreativePath(String gwCreativePath) {
+		this.gwCreativePath = gwCreativePath;
 	}
 
 }

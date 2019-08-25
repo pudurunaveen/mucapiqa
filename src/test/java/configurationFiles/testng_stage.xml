@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="2" parallel="classes"
+	thread-count="1">
+	<parameter name="env" value="stage_published" />
+	<parameter name="typeOfSale" value="Sale" />
+<!-- 	<parameter name="env" value="prod_published" /> -->
+
+	 <listeners>
+         <listener class-name="com.easy.TestNGCustomReportListener2" />
+    </listeners>
+
+	<test name="CAPI Regression Test">
+		<classes>
+
+			<class name="com.mu.testcases.TestConfig" />
+	
+ 			<class name="com.mu.testcases.AndroidIOSNonSub" />
+			<class name="com.mu.testcases.AndroidIOSKillSet" />
+
+			<class name="com.mu.testcases.RegiAdblockTest" />
+
+			<class name="com.mu.testcases.WebAnonOptimizely" />
+			<class name="com.mu.testcases.WebOptimizely" />
+			
+			<class name="com.mu.testcases.WebSubInlineKillSet" />
+			
+			<class name="com.mu.testcases.WebRegiINYTLight" />
+			<class name="com.mu.testcases.WebRegiINYTFamily" /> 
+			
+			<class name="com.mu.testcases.Opt_WebRegiUS_PayWall" />
+			<class name="com.mu.testcases.WebRegiSale" />
+			
+			
+			
+<!-- 			
+			<class name="com.mu.testcases.WebRegiUSBAU" />
+			<class name="com.mu.testcases.WebRegiINYTBAU" />
+			
+			<class name="com.mu.testcases.WebRegiINDBAU" /> -->
+			
+			
+			
+			
+			
+			<!-- <class name="com.mu.testcases.WebRegiRTS" /> -->
+			
+			
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

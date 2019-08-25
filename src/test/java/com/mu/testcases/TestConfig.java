@@ -23,14 +23,16 @@ public class TestConfig {
 	}
 
 	@BeforeTest
-	@Parameters({ "env" })
-	public void testBeforeTest(String environment) {
+	@Parameters({ "env", "typeOfSale" })
+	public void testBeforeTest(String environment, String typeOfSale) {
 		System.out.println("testBeforeTest()");
 
 		ReadJsonData.MAG_ENV = environment.split("_")[0];
-		;
+		
 		ReadJsonData.MAG_PUBLISH = environment.split("_")[1];
-		;
+		
+		ReadJsonData.MAG_TYPE_OF_SALE = typeOfSale ;
+		
 		if (ReadJsonData.MAG_ENV_PRD.equals(ReadJsonData.MAG_ENV)) {
 			System.out.println("###################PROD Environment##################");
 		} else if (ReadJsonData.MAG_ENV_STG.equals(ReadJsonData.MAG_ENV)) {

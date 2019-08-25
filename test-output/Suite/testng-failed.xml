@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" verbose="2" name="Failed suite [Suite]" parallel="classes">
-  <parameter name="env" value="prod_published"/>
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="2" name="Failed suite [Suite]" parallel="classes">
+  <parameter name="typeOfSale" value="Sale"/>
+  <parameter name="env" value="stage_published"/>
+  <listeners>
+    <listener class-name="com.easy.TestNGCustomReportListener2"/>
+  </listeners>
   <test name="CAPI Regression Test(failed)" parallel="classes">
     <classes>
-      <class name="com.mu.testcases.NonSubsAdblockTest">
+      <class name="com.mu.testcases.WebRegiSale">
         <methods>
-          <include name="setUpBeforeMethod"/>
-          <include name="verifyAdblockRegiMC4"/>
           <include name="tearDownAfterMethod"/>
-          <include name="verifyAdblockAnonMC1"/>
+          <include name="setUpBeforeMethod"/>
+          <include name="verifySaleINYT_IND"/>
         </methods>
-      </class> <!-- com.mu.testcases.NonSubsAdblockTest -->
+      </class> <!-- com.mu.testcases.WebRegiSale -->
     </classes>
   </test> <!-- CAPI Regression Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

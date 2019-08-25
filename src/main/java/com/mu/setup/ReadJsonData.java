@@ -47,6 +47,14 @@ public class ReadJsonData {
 	
 	public static final String CONFIG_SEG_8 = "_SEG_8";
 	
+	public static final String CONFIG_SEG_9 = "_SEG_9";
+	
+	public static final String CONFIG_SEG_10 = "_SEG_10";
+	
+	public static final String CONFIG_SEG_11 = "_SEG_11";
+	
+	public static final String CONFIG_SEG_12 = "_SEG_12";
+	
 
 	
 	
@@ -72,9 +80,39 @@ public class ReadJsonData {
 	
 	public static final int CONFIG_COL = 8 ;
 	
+	public static final String MAG_CAMPAIGNNAME = "_MAG_CampaignName";
+	
+	public static final String SALE_TYPE = "Sale";
+	
+	public static final String BAU_TYPE = "BAU";
+	
+	public static final String LOCATION_USA = "USA";
+	
+	public static final String LOCATION_CAN = "CAN";
+	
+	public static final String LOCATION_AUS = "AUS";
+	
+	public static final String LOCATION_EUR = "EUR";
+	
+	public static final String LOCATION_UK = "UK";
+	
+	public static final String LOCATION_IND = "IND";
+	
+	public static final String LOCATION_ROW = "ROW";
+	
+	public static final String LOCATION_LIGHT = "Light";
+	
+	public static final String LOCATION_FAMILY = "Family";
+	
 	public static String MAG_ENV = "";
 	
-	public static String MAG_PUBLISH = "false";
+	public static String MAG_PUBLISH = "notpublished";
+	
+	public static String MAG_TYPE_OF_SALE = "TypeOfSale_NotDefined";
+	
+	
+	
+	public static String MAG_TESTCAMPAIGN = "";
 	
 	
 	
@@ -128,6 +166,23 @@ public class ReadJsonData {
 	    cGatewayData.setActive(JGatewayObj.get(ACTIVE).toString());
 	    cGatewayData.setCampaignName(JGatewayObj.get(CAMPAIGN_NAME).toString());
 	    
+		String targetInfo = JGatewayObj.get("targetingInfo").toString();
+		
+		if(!targetInfo.equalsIgnoreCase("null")) {
+		
+		JSONObject gw_creativeInfo = new JSONObject(JGatewayObj.getJSONObject("targetingInfo").getJSONObject("pages").getJSONObject("creative").toString());
+		JSONObject gw_subsInfo = new JSONObject(JGatewayObj.getJSONObject("targetingInfo").getJSONObject("pages").getJSONObject("subscription").toString());
+		
+		cGatewayData.setGwSubsPath(gw_subsInfo.get("path").toString());
+		//cGatewayData.setGwSubsAudienceName(gw_subsInfo.get("audienceName").toString());
+		cGatewayData.setGwCreativePath(gw_creativeInfo.get("path").toString());
+		
+		
+//		System.out.println(cGatewayData.getGwSubsPath());
+//		System.out.println(cGatewayData.getGwSubsAudienceName());
+//		System.out.println(cGatewayData.getGwCreativePath());
+		}
+	    
 //	    System.out.println("welcomeAd - "+cWelcomeAdData.getCampaignName());
 //	    System.out.println("barone- "+cBarOneData.getCampaignName());
 //	    System.out.println("dock- "+cDockData.getCampaignName());
@@ -154,4 +209,6 @@ public class ReadJsonData {
 
 	
 	}
+	
+
 }

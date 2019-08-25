@@ -23,7 +23,7 @@ public class JsonReader {
 
 	public static void main(String[] args) throws IOException, JSONException {
 
-		String capiURL = "https://mwcm.nytimes.com/capi/metered_assets?mc=2&mr=0&ma=1&counted=false&granted=true&abra=MC_magnolia_0519%3D1_magnolia&pre_prod=true&areas=barOne&areas=dock&areas=inlineUnit&areas=welcomeAd&areas=truncator&areas=gateway&plat=web&us=anon&adblock=true";
+		String capiURL = "https://mwcm.nytimes.com/capi/metered_assets?pre_prod=true&plat=web&us=regi";
 		JSONObject json = readJsonFromUrl(capiURL);
 		System.out.println(json.toString());
 		// System.out.println(json.get("id"));
@@ -56,7 +56,22 @@ public class JsonReader {
 				"inlineObj- " + inlineObj.get("active").toString() + ", " + inlineObj.get("campaignName").toString());
 		System.out.println("gatewayObj- " + gatewayObj.get("active").toString() + ", "
 				+ gatewayObj.get("campaignName").toString());
-
+		
+		
+		System.out.println(gatewayObj.get("targetingInfo").toString());
+		
+		String targetInfo = gatewayObj.get("targetingInfo").toString();
+		
+		if(!targetInfo.equalsIgnoreCase("null")) {
+		
+		JSONObject gw_creativeInfo = new JSONObject(gatewayObj.getJSONObject("targetingInfo").getJSONObject("pages").getJSONObject("creative").toString());
+		JSONObject gw_subsInfo = new JSONObject(gatewayObj.getJSONObject("targetingInfo").getJSONObject("pages").getJSONObject("subscription").toString());
+		
+		System.out.println(gw_creativeInfo.get("path").toString());
+		System.out.println(gw_subsInfo.get("path").toString());
+		System.out.println(gw_subsInfo.get("audienceName").toString());
+		}
+		
 	}
 
 }
